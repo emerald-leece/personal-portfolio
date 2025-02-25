@@ -1,0 +1,7 @@
+body {
+    display: flex;
+}
+aside {
+    //media query to put aside to the right
+    width: 33%;
+}
