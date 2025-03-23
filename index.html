@@ -6,44 +6,75 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Personal Portfolio Website of Emerald Leece">
         <meta name="keywords" content="Web Development, HTML, CSS, JavaScript, Web Development, Design">
-        <link rel="style-sheet" href="style.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
-            <!--logo/header-->
-            <nav role="navigation">
-                <ul>
-                    <li>Main</li>
-                    <li>About Me</li>
-                    <li>Projects</li>
-                    <li>Skills</li>
-                    <li>Contact Form</li>
-                </ul>
-            </nav>
+        <div class="wrapper">
+<!--Header-->
+        <header class="main-head">
+            <div class="image-container" style="width: 500px; height: 150px; background-color: #ccc; border: 1px solid #000;">
+                <div class="text" style="color: #000; font-family: Arial; font-size: 20px;">500 x 150<br><br></div>
+              </div>
         </header>
-        <main>
-            <section id="about-me">
+<!-- Navigation Menu -->
+<nav role="nav">
+    <div class="topnav" id="myTopnav">
+        <a href="javascript:void(0);" class="icon" onclick="showNav()">
+            <img src="images/hamburger-menu.png" height="30px">
+          </a>
+        <a href="#main">Main</a>
+        <a href="#about-me">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact Me</a>
+
+    </div>
+</nav>
+<!--Main Content-->
+        <main class="content">
+    <!--About Me-->
+            <section>
                 <h2>About Me</h2>
-                <p>
+                <div class="about">
+                <p id="about-me">
                     I am an all around communication nerd - I love words and languages, design and accessible websites.
                     My love for languages is what drew me to programming but the ability to create something that can be shared so widely and so easily brought me back.
                     I'm passionate about getting great things in front of as many people as possible with accessible design and SEO at the heart of what I do.
                 </p>
+            </div>
+                <button id="keywords" onclick="showKeywords()">See My Keywords</button>
             </section>
-            <section id="projects">
+    <!--Projects Section-->
+            <section id="projects-container">
                 <h2>Projects</h2>
-                <article>
-                    <h3>Personal Portfolio</h3>
-                    <figure>
-                        <img src="" alt="A screenshot of the current webpage"/>
-                        <figcaption>This website is my first project!</figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <h3>9 Days in Italy</h3>
-                    <iframe title="9 Days in Italy" width="420" height="315" src="""></iframe>"
-                </article>
+                <label for="filters">Filter By</label>
+                <div id="filterContainer">
+                    <button class="btn filter active" onclick="applyFilters('all')">See All</button>
+                    <button class="btn filter web" onclick="applyFilters('web')">Web</button>
+                    <button class="btn filter writing" onclick="applyFilters('writing')">Writing</button>
+                    <button class="btn filter video" onclick="applyFilters('video')">Video</button>
+                    <button class="btn filter design" onclick="applyFilters('design')">Design</button>
+                </div>
+                <section id="projects">
+                    <article id="portfolio" class="web project">
+                        <h3>Personal Portfolio</h3>
+                        <figure>
+                            <img src="/images/personal-portfolio.png" alt="A screenshot of the current webpage" height="150px" onclick="showModal()"/>
+                            <figcaption>This website is my first project!</figcaption>
+                        </figure>
+                    </article>
+                    <article id="italy" class="video project">
+                        <h3>9 Days in Italy</h3>
+                        <div class="video-container">
+                            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/y0sF5xhGreA?si=ybvsA1vcpZlcHsUN" title="9 Days Solo in Italy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </article>
+                </section>
             </section>
+        </main>
+<!--Side Bar-->
+        <aside class="aside">
+    <!--Skills-->
             <section id="skills">
                 <h2>Skills</h2>
                 <ul>
@@ -54,22 +85,31 @@
                     <li>Photo and Video Editing</li>
                 </ul>
             </section>
-        </main>
-        <aside>
+    <!--Contact Me-->
             <section id="contact">
                 <h2>Contact Me</h2>
-                <form>
+                <form name="contact" onsubmit="return validateForm()" method="post">
                     <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name"><br>
+                    <input type="text" id="name" name="name" required><br>
                     <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email"><br>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" placeholder="Leave a message..." required></textarea>
                     <input type="submit" value="Submit">
                 </form>
             </section>
         </aside>
-        <footer>
-
+    <!--Modal View-->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+<!--Footer-->
+        <footer class="main-footer">
+            <p>Copyright Emerald Leece 2025</p>
         </footer>
-        <script src="script.js"></script>
+    </div>
+    <script type="text/javascript" language="javascript" src="script.js"></script>
     </body>
 </html>
