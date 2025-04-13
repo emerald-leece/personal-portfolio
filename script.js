@@ -1,6 +1,14 @@
 function showKeywords() {
     const keywords = document.getElementById("keywords");
-    document.getElementById("about-me").innerHTML = "I am an all around <b>communication</b> nerd - I love words and languages, design and accessible websites. My love for languages is what drew me to programming but the ability to create something that can be shared so widely and so easily brought me back. I'm passionate about getting great things in front of as many people as possible with accessible design and SEO at the heart of what I do.";
+    if (keywords.classList.contains("visible")) {
+        document.getElementById("about-me").innerHTML = "I am an all around communication nerd - I love words and languages, design and accessible websites. My love for languages is what drew me to programming but the ability to create something that can be shared so widely and so easily brought me back. I'm passionate about getting great things in front of as many people as possible with accessible design and SEO at the heart of what I do.";
+        keywords.classList.remove("visible");
+        keywords.innerText = "See my keywords";
+    } else {
+        document.getElementById("about-me").innerHTML = "I am an all around <b>communication</b> nerd - I love words and languages, <b>design</b> and accessible websites. My love for languages is what drew me to <b>programming</b> but the ability to create something that can be shared so widely and so easily brought me back. I'm passionate about getting great things in front of as many people as possible with <b>accessible design</b> and <b>SEO</b> at the heart of what I do.";
+        keywords.classList.add("visible");
+        keywords.innerText = "Hide my keywords";
+    }
 }
 
 function showNav() {
